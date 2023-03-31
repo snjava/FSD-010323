@@ -11,7 +11,7 @@ public class Calculator
 	}
 	
 	// get the birth year, calculate the age and return the age
-	public void findAge(int byear)
+	public int findAge(int byear)
 	{
 		System.out.println("Calculating the Age...");
 		int cyear = 2023;
