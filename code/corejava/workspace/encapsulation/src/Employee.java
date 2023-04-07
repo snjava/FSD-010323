@@ -1,4 +1,5 @@
 
+// Encapsulated class, Plain Old Java Object(POJO), Entity, Bean, Data Transfer Object(DTO)
 public class Employee {
 	private int id;
 	private String name;
@@ -13,7 +14,7 @@ public class Employee {
 		return name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.name = name.toUpperCase();
 	}
 	public double getSalary() {
 		return salary;
