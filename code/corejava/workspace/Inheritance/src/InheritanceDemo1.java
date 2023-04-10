@@ -1,17 +1,20 @@
 public class InheritanceDemo1 {
 	public static void main(String[] args) {
 		Employee e1 = new Employee();
+		System.out.println(e1.toString());
 		e1.setEmpData(121, "Xyz", "Pune");
 		e1.printEmpData();
 		
 		System.out.println("===================");
 		SoftwareDeveloper sfDev = new SoftwareDeveloper();
 		sfDev.setDevData(111, "Demo1", "Delhi", "Corejava, Spring, Angular");
-		sfDev.printDevData();		
+		sfDev.printDevData();	
+		
+		Person p = new Doctor(); // Polymorphic object
 	}
 }
 
-class Person {
+class Person extends Object {
 	String name;
 	String address;
 	public void setPersonData(String n, String a) {
