@@ -16,7 +16,8 @@ final class AudiCar {
 		System.out.println(companyName);
 	}
 }
-
+/*
 class Demo extends AudiCar {
 	
 }
+*/
