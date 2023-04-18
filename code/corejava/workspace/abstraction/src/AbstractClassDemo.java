@@ -12,7 +12,7 @@ abstract class Car {
 	}
 	public abstract void brand();
 	public abstract void fuelType();
-	public static final void noOfWheels() {
+	public void noOfWheels() {
 		System.out.println("Car has 4 wheels..");
 	}
 }
