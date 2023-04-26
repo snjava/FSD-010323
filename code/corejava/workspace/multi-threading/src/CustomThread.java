@@ -12,7 +12,6 @@ public class CustomThread {
 class MyThread extends Thread {
 	public void run() {		// Running
 		System.out.println("Custom Thread STARTED...");
-		
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
