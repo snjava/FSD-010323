@@ -3,8 +3,10 @@ package edu.learning.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +33,17 @@ public class ProductController {
 	}
 	
 	
+	@PutMapping("/update-quantity")
+	public String updateProductQty(@RequestParam int qty, @RequestParam String name) {
+		repository.updateProdQty(qty, name);
+		return "Product Quantity Updated Successfully...";
+	}
+	
+	@DeleteMapping("/delete-product")
+	public String deletedProdByQty() {
+		repository.deleteRecord();
+		return "Deleted Product whose quantity is 0";
+	}
 }
 
 

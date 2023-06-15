@@ -3,9 +3,11 @@ package edu.learning.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.learning.entity.Product;
 
@@ -20,6 +22,16 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	@Query(value = "select * from prod_info where qty>= :qt", nativeQuery = true)
 	public List<Product> getProductByQtySQL(@Param("qt") int qty );
 
-
+	// SQL :  UPDATE prod_info set qty=4 WHERE pnm='Smart Watch'
+	@Modifying
+	@Transactional
+	@Query(value = "UPDATE Product set quantity= :q WHERE name= :n")
+	public void updateProdQty(@Param("q") int qty, 
+			@Param("n") String name);
+	
+	@Modifying
+	@Transactional
+	@Query(value = "DELETE FROM prod_info where qty=0", nativeQuery = true)
+	public void deleteRecord();
 
 }
