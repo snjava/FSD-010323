@@ -4,7 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "user_details")
@@ -15,6 +18,16 @@ public class UserInfo {
 	private String name;
 	private String email;
 	private String contact;
+	@JsonManagedReference
+	@OneToOne(mappedBy = "info")
+	private UserAddress address;
+	
+	public UserAddress getAddress() {
+		return address;
+	}
+	public void setAddress(UserAddress address) {
+		this.address = address;
+	}
 	public int getUid() {
 		return uid;
 	}
